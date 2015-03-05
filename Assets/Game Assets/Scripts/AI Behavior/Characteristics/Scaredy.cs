@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Actions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,8 @@ namespace Characteristics
         {
             if (theEvent.Type == "Vision")
             {
-                Debug.Log(Agent.Name + ": I'm Scared");
+                //on va ajouter l'action 'RUN' à l'agent
+                Agent.RegisterAction(new Run());
             }
         }
     }

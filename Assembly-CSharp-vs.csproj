@@ -50,6 +50,7 @@
      <Compile Include="Assets\Game Assets\Scripts\AI Behavior\AIAgent.cs" />
      <Compile Include="Assets\Game Assets\Scripts\AI Behavior\AICharacteristic.cs" />
      <Compile Include="Assets\Game Assets\Scripts\AI Behavior\AIState.cs" />
+     <Compile Include="Assets\Game Assets\Scripts\AI Behavior\Actions\Run.cs" />
      <Compile Include="Assets\Game Assets\Scripts\AI Behavior\Characteristics\Scaredy.cs" />
      <Compile Include="Assets\Game Assets\Scripts\Game Mechanics\AITrigger.cs" />
      <Compile Include="Assets\Game Assets\Scripts\Game Mechanics\GameEvent.cs" />
