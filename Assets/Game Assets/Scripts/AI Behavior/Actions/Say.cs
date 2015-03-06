@@ -6,19 +6,18 @@ using UnityEngine;
 
 namespace Actions
 {
-    class Run : AIAction
+    class Say : AIAction
     {
-        public Vector3 Destination;
+        public string Text;
 
-        public Run(Vector3 destination)
+        public Say(string text)
         {
-            this.Destination = destination;
+            this.Text = text;
         }
 
         public override bool Execute(AIAgent agent)
         {
-            var rb = agent.GetComponent<Rigidbody>();
-            rb.MovePosition(rb.position + this.Destination);
+            agent.transform.FindChild("Speech").GetComponent<TextMesh>().text = Text;
             return true;
         }
     }

@@ -21,6 +21,8 @@ public class AIAgent : InteractableElement {
         PreviousPositions = new List<Vector3>();
         Actions = new List<AIAction>();
 
+        //on va aller chercher l'enfant qui s'appel 'Speech' qui est en fait l'objet de parole
+
         Debug.Log("Ready");
     }
 	// Use this for initialization
@@ -28,15 +30,16 @@ public class AIAgent : InteractableElement {
 	    //pour fin de test on va ajouter une caractéristique à cet Agent
         this.Name = "Bob";
         AICharacteristic myFirstCharacteristic = new Scaredy(this);
+        myFirstCharacteristic.Level = 55;
         this.Characteristics.Add(myFirstCharacteristic);
 	}
 
 
-    void OnTriggerStay()
+    void OnTriggerStay(Collider other)
     {
         //on créé l'évènement qui va faire que l'AI va avoir peur
-        GameEvent ge = new GameEvent();
-        ge.Type = "Vision";
+        GameEvent ge = new GameEvent(other);
+        ge.Type = "Close";
         foreach (var charac in Characteristics)
         {
             charac.React(ge);

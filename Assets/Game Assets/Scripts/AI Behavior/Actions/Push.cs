@@ -6,19 +6,21 @@ using UnityEngine;
 
 namespace Actions
 {
-    class Run : AIAction
+    class Push : AIAction
     {
-        public Vector3 Destination;
+        public Vector3 Direction;
+        public float Strength;
 
-        public Run(Vector3 destination)
+        public Push(Vector3 direction, float strength)
         {
-            this.Destination = destination;
+            this.Direction = direction;
+            this.Strength = strength;
         }
 
         public override bool Execute(AIAgent agent)
         {
             var rb = agent.GetComponent<Rigidbody>();
-            rb.MovePosition(rb.position + this.Destination);
+            rb.AddForce(this.Direction.normalized* this.Strength);
             return true;
         }
     }
